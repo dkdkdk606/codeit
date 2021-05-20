@@ -2,7 +2,14 @@
     #f.write("hellow world\n")
     #f.wirte("My name is byeongchan."
 with open('vocavulary.txt', 'a') as f:
-    en = input("영어단어를 입력하세요: ")
-    if en != "q":
-        kr = input("한국어 뜻을 입력하세요: )
-    
+    en = ""
+    while true:
+        en = input("영어 단어를 입력하세요: ")
+        if en == "q":
+            break
+        f.write(f"{en}: ")
+        
+        kr = input("한국어 뜻을 입력하세요: ")
+        if kr == "q":
+            break
+        f.write(kr,"\n")
