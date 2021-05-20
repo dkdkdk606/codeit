@@ -2,5 +2,7 @@
     #f.write("hellow world\n")
     #f.wirte("My name is byeongchan."
 with open('vocavulary.txt', 'a') as f:
-    input("영어단어를 입력하세요: ","text")
+    en = input("영어단어를 입력하세요: ")
+    if en != "q":
+        kr = input("한국어 뜻을 입력하세요: )
     
