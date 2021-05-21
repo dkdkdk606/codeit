@@ -1,0 +1,6 @@
+learn: 배우다
+how: 어떻게
+to here: 여기까지
+come and come: 원엔원~
+cat: 고양이
+dog: 개
