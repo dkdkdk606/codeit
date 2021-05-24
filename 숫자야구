@@ -1,0 +1,66 @@
+import random
+
+
+def generate_numbers():
+    numbers = []
+    while len(numbers) < 3:
+        a = random.randrange(10)
+        if a not in numbers:
+            numbers.append(a)
+    
+    return numbers
+    
+
+
+def take_guess():
+    print("숫자 3개를 하나씩 차례대로 입력하세요.")
+    
+    new_guess = []
+    i = 1
+    
+    while len(new_guess) < 3:
+        a = int(input(f"{i}번째 숫자를 입력하세요: "))
+        if a > 9 or a < 0:
+            print("범위를 벗어나는 숫자입니다. 다시 입력하세요.")
+            continue
+        elif a in new_guess:
+            print("중복되는 숫자입니다. 다시 입력하세요.")
+            continue
+        else:
+            new_guess.append(a)
+            i += 1
+    
+    return new_guess
+
+
+def get_score(guess, solution):
+    strike_count = 0
+    ball_count = 0
+    
+    ball_count = len(set(guess).intersection(set(solution)))
+    for i in range(3):
+        if guess[i] == solution[i]:
+            strike_count += 1
+            ball_count -= 1
+
+    return strike_count, ball_count
+
+
+
+# 여기서부터 게임 시작!
+ANSWER = generate_numbers()
+tries = 0
+new_guess = []
+
+while new_guess != ANSWER:
+    new_guess = take_guess()
+    strike_count, ball_count = get_score(new_guess, ANSWER)
+    
+    print(f"{strike_count}S {ball_count}B")
+    
+    tries += 1
+
+
+# 코드를 작성하세요.
+
+print(f"축하합니다. {tries}번 만에 숫자 3개의 값과 위치를 모두 맞추셨습니다.")
