@@ -1,0 +1,36 @@
+패키지랑 별 다를거 없을거같은데\
+일단 기본적으로는 패키지 안의 패키지를 부르는 말
+
+기본적으로 호출하는건 다를 일이 없음
+
+
+pack\sub1\init, mod1, mod2
+    \sub2\init, mod1, mod2
+    
+   from pack.sub1 import mod1
+   from pack.sub1.mod1 import func1
+   다를게 없는데
+   
+   init 안에 import * 있는 경우 경로 몇개 생략할 수 있는거 좀 구분해서 잘 생각하면 될듯
+   
+   init은 디렉토리 경로 중간에 있는 연결다리라고 생각하면 되것다
+   다리긴 다린데 파이썬은 다리만 보고 그냥 감
+   근데 다리에 저기까지 가라고 써있으면 저기까지 감
+   
+                import 팩.mod1 = 파이썬아 팩 온김에 mod도 보고가
+                
+   ------팩------init-------mod1
+                        l------mod2
+   sub팩에 있는  init은 그냥 서브팩이라는걸 알려주는용
+               여기 init에서 뭘 쓸건지 미리 알려줘야함
+                   ↓                      여기는 그냥 sub1도 패키지다! 알려주는용 저 앞 init 에다가 sub1\mod3쓰겠다 해놔야됨
+                   ↓          sub1을 팩\init에서 모듈처럼 불러서 mod3과 mod4를 한꺼번에 부르는거 안됨
+                   ↓          팩\init에서 form 팩.sub1 import mod3, mod4 이렇게 불러야지
+                   ↓          sub1\init에 from sub1 import mod3, mod4 하고 팩\init에서 form 팩 import sub1 으로 mod3,4 못부름
+   ------팩------init-------sub1---------init
+                                ---------mod3
+                                ---------mod4
+                     -------mod1
+                     -------mod2
+                        
+       

@@ -1,0 +1,23 @@
+#디렉토리의 readme.md같은 느낌인듯
+#내가 이 폴더가 패키지임을 알려줌과 동시에 이 패키지를 불러오면 __init이 실행됨
+# initialize 의 약자로써 패키지 실행시 초기화를 의미함
+
+
+# 앞으로 init 에서 import를 미리 해주면 
+#from cil.processing import area 이렇게 안하고
+
+#cil 디렉토리의 init 파일에 
+
+\__init__
+from cil import area
+
+를 작성해놓으면
+
+line 7 처럼 말고
+import cil
+
+만 해놓으면
+cil.area 이렇게 사용 가능
+
+패키지안에서 상수지정할때도 init 안에서 지정해놓고
+form cil(폴더명) import PI 해서 사용하는게 좋다네 이거 뭐 적당히 설명할 말이 없다
